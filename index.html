@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Jumpy Something</title>
+        <style media='screen' type='text/css'>
+            @font-face {
+                font-family: JumpyFont;
+                src: url('assets/fonts/JumpyFont.ttf');
+            }
+        </style>
+        <div style="font-family:JumpyFont; position:absolute; left:-1000px; visibility:hidden;">.</div>
+        <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+        <script src="assets/scripts/jumpyGlobals.js"></script>
+        <script src="assets/scripts/levelDefinition.js"></script>
+        <script src="assets/scripts/gameObjectClasses.js"></script>
+        <script type="module" src="assets/scripts/jumpyGame.js"></script>
+        <script>
+            var isMobile = false
+            window.addEventListener('touchstart', function()
+            {
+                isMobile	= true;
+            });
+        </script>
+        <style type="text/css">
+            body {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="">
+        </div>
+    </body>
+</html>
