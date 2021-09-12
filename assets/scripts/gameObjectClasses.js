@@ -5,19 +5,22 @@ class Player extends Phaser.Physics.Arcade.Sprite
         super(scene, x, y, texture);
         scene.add.existing(this);
         this.scene.physics.world.enableBody(this, 0);
+        this.groundLayerCollision = scene.physics.add.collider(this, scene.groundLayer);
+        this.setCollideWorldBounds(true);
+        this.body.immovable = true;
+        this.body.setSize(14, 30);
 
         this.level = 1;
         this.currentExp = 0;
         this.maxExp = expToLevel2;
         this.runSpeed = 195;
-        this.jumpVelocity = -326;
+        this.jumpVelocity = -312;
         this.wallJumpVelocityX = 230;
         this.wallJumpVelocityY = -318;
-        this.canWallJump = false;
+        this.isWalled = false;
         this.maxNumberOfExtraJumps = 0;
         this.extraJumpsAvailable = null;
         this.isDead = false;
-        this.groundLayerCollision = scene.physics.add.collider(this, scene.groundLayer);
     }
 
     update(scene)
@@ -26,16 +29,33 @@ class Player extends Phaser.Physics.Arcade.Sprite
 
         if(this.body.velocity.y > 0)
         {
-            this.body.setGravityY(876);
+            if(this.isWalled)
+            {
+                this.body.setGravityY(650);
+            }
+            else
+            {
+                this.body.setGravityY(876);
+            }
         }
         else
         {
             this.body.setGravityY(60);
         }
 
-        if(maxPlayerVelocityY < this.body.velocity.y)
+        if(this.isWalled)
         {
-            this.body.velocity.y = maxPlayerVelocityY;
+            if(maxPlayerWalledVelocityY < this.body.velocity.y)
+            {
+                this.body.velocity.y = maxPlayerWalledVelocityY;
+            }
+        }
+        else
+        {
+            if(maxPlayerVelocityY < this.body.velocity.y)
+            {
+                this.body.velocity.y = maxPlayerVelocityY;
+            }
         }
 
         if(this.body.blocked.down)
@@ -66,11 +86,25 @@ class Player extends Phaser.Physics.Arcade.Sprite
         {
             if(this.runSpeed < 0)
             {
-                this.anims.play('playerInAirLeft', true);
+                if(this.isWalled && this.body.velocity.y > 0)
+                {
+                    this.anims.play('playerWallHangLeft', true);
+                }
+                else
+                {
+                    this.anims.play('playerInAirLeft', true);
+                }
             }
             else
             {
-                this.anims.play('playerInAirRight', true);
+                if(this.isWalled && this.body.velocity.y > 0)
+                {
+                    this.anims.play('playerWallHangRight', true);
+                }
+                else
+                {
+                    this.anims.play('playerInAirRight', true);
+                }
             }
 
             if(this.body.velocity.y < 0)
@@ -89,30 +123,30 @@ class Player extends Phaser.Physics.Arcade.Sprite
     {
         if(this.runSpeed > 0)
         {
-            var topRightTile = wallJumpableLayer.getTileAtWorldXY(this.body.x + 23, this.body.y + 8);
-            var bottomRightTile = wallJumpableLayer.getTileAtWorldXY(this.body.x + 23, this.body.y + 24);
+            var topRightTile = wallJumpableLayer.getTileAtWorldXY(this.body.x + 25, this.body.y + 8);
+            var bottomRightTile = wallJumpableLayer.getTileAtWorldXY(this.body.x + 25, this.body.y + 24);
 
             if(topRightTile != null || bottomRightTile != null)
             {
-                this.canWallJump = true;
+                this.isWalled = true;
             }
             else
             {
-                this.canWallJump = false;
+                this.isWalled = false;
             }
         }
         else
         {
-            var topLeftTile = wallJumpableLayer.getTileAtWorldXY(this.body.x - 1, this.body.y + 8);
-            var bottomLeftTile = wallJumpableLayer.getTileAtWorldXY(this.body.x - 1, this.body.y + 24);
+            var topLeftTile = wallJumpableLayer.getTileAtWorldXY(this.body.x - 3, this.body.y + 8);
+            var bottomLeftTile = wallJumpableLayer.getTileAtWorldXY(this.body.x - 3, this.body.y + 24);
 
             if(topLeftTile != null || bottomLeftTile != null)
             {
-                this.canWallJump = true;
+                this.isWalled = true;
             }
             else
             {
-                this.canWallJump = false;
+                this.isWalled = false;
             }
         }
     }

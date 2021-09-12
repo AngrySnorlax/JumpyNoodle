@@ -66,12 +66,8 @@ class LevelScene extends Phaser.Scene
     instantiatePlayer(spawnObject)
     {
         this.playerSprite = new Player(this, spawnObject.x + 16, spawnObject.y, 'playerCharacter');
-        this.playerSprite.setCollideWorldBounds(true);
-        this.playerSprite.body.immovable = true;
-        this.playerSprite.body.setSize(14, 30);
 
         this.cameras.main.startFollow(this.playerSprite);
-        this.children.bringToTop(this.playerSprite);
         uIDict.inGameUI.updateInGameUI(this.playerSprite.level, this.playerSprite.currentExp, this.playerSprite.maxExp);
     }
 
@@ -189,7 +185,7 @@ class LevelScene extends Phaser.Scene
         }
         else
         {
-            if(this.playerSprite.canWallJump)
+            if(this.playerSprite.isWalled)
             {
                 if(this.playerSprite.runSpeed > 0)
                 {
@@ -320,6 +316,8 @@ class LevelScene extends Phaser.Scene
                     break;
             }
         });
+
+        this.children.bringToTop(this.playerSprite);
 
         for(var i = 0; i < this.slimes.length; i++)
         {

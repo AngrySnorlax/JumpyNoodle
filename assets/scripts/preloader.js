@@ -74,11 +74,13 @@ class Preloader extends Phaser.Scene
     {
         this.createAnimation('playerMoveLeft', 'playerCharacter', [ 0, 1, 2, 3 ], 7, -1);
         this.createAnimation('playerInAirLeft', 'playerCharacter', [4], 1, -1);
-        this.createAnimation('playerMoveRight', 'playerCharacter', [ 5, 6, 7, 8 ], 7, -1);
-        this.createAnimation('playerInAirRight', 'playerCharacter', [9], 1, -1);
-        this.createAnimation('playerIdle', 'playerCharacter', [10], 1, -1);
-        this.createAnimation('playerDead', 'playerCharacter', [11], 1, -1);
-        this.createAnimation('playerWin', 'playerCharacter', [12, 13], 4, -1);
+        this.createAnimation('playerWallHangLeft', 'playerCharacter', [5], 1, -1);
+        this.createAnimation('playerMoveRight', 'playerCharacter', [ 6, 7, 8, 9 ], 7, -1);
+        this.createAnimation('playerInAirRight', 'playerCharacter', [10], 1, -1);
+        this.createAnimation('playerWallHangRight', 'playerCharacter', [11], 1, -1);
+        this.createAnimation('playerIdle', 'playerCharacter', [12], 1, -1);
+        this.createAnimation('playerDead', 'playerCharacter', [13], 1, -1);
+        this.createAnimation('playerWin', 'playerCharacter', [14, 15], 4, -1);
 
         this.createAnimation('slimeEnemyLevel1Idle', 'slimeEnemyLevel_1', [0, 1], 4, -1);
         this.createAnimation('slimeEnemyLevel2Idle', 'slimeEnemyLevel_2', [0, 1], 4, -1);

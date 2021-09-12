@@ -7,17 +7,16 @@ var tilemapURLArray = [
     { tilemapKey: 'level5', },
     { tilemapKey: 'level6', },
     { tilemapKey: 'level7', },
-    { tilemapKey: 'level8', },
-    { tilemapKey: 'level9', },
-    { tilemapKey: 'level10', },
-    { tilemapKey: 'level11', },
-    { tilemapKey: 'level12', },
-    { tilemapKey: 'level13', },
-    { tilemapKey: 'level14', },
+    // { tilemapKey: 'level8', },
+    // { tilemapKey: 'level9', },
+    // { tilemapKey: 'level10', },
+    // { tilemapKey: 'level11', },
+    // { tilemapKey: 'level12', },
+    // { tilemapKey: 'level13', },
+    // { tilemapKey: 'level14', },
 
     // { tilemapKey: 'levelBranchingPaths', },
-
-    // { tilemapKey: 'testLevel', },
+    { tilemapKey: 'testLevel', },
 ]
 
 class LevelManager
@@ -39,7 +38,7 @@ class LevelDefinition
     {
         this.tilemapKey = levelConfig.tilemapKey;               // This refers to the tilemap key set for this level's loaded tilemap.
         this.levelName = levelConfig.levelName;                 // For display purposes.
-        this.levelNameShortened = levelConfig.levelNameShortened;
+        this.levelNameShortened = levelConfig.levelNameShortened;   // This is what is shown on the level select button.
         this.levelNameOffsetY = levelConfig.levelNameOffsetY;   // An offset value for displaying the level name at a different Y value.
         this.extraText = levelConfig.extraText;                 // For display purposes.
         this.numberOfSlimes = levelConfig.numberOfSlimes;       // Number of slimes in the map.

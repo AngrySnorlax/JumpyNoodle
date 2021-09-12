@@ -46,6 +46,5 @@ jumpyGame.scene.add("inGameUI", inGameUI);
 jumpyGame.scene.add("puaseMenu", pauseMenu);
 jumpyGame.scene.add("startofLevelUI", startofLevelUI);
 
-
 // Start Preloader Scene which transitions to Main Menu
 jumpyGame.scene.start('preloader');
