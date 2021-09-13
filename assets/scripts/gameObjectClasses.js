@@ -21,11 +21,18 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.maxNumberOfExtraJumps = 0;
         this.extraJumpsAvailable = null;
         this.isDead = false;
+        this.extraJumpTimer = 0;
+        this.extraJumpTimerDuration = 150;
     }
 
     update(scene)
     {
         this.wallJumpDetection(scene.groundLayer);
+
+        if(this.extraJumpTimer > 0)
+        {
+            this.extraJumpTimer -= jumpyGame.loop.delta;
+        }
 
         if(this.body.velocity.y > 0)
         {
@@ -124,6 +131,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         if(this.body.blocked.down)
         {
             this.setVelocityY(this.jumpVelocity);
+            this.extraJumpTimer = this.extraJumpTimerDuration;
         }
         else
         {
@@ -141,10 +149,11 @@ class Player extends Phaser.Physics.Arcade.Sprite
                 this.setVelocityY(this.wallJumpVelocityY);
                 this.runSpeed = -this.runSpeed;
                 this.extraJumpsAvailable = this.maxNumberOfExtraJumps;
+                this.extraJumpTimer = this.extraJumpTimerDuration;
             }
             else
             {
-                if(this.extraJumpsAvailable > 0)
+                if(this.extraJumpsAvailable > 0 && this.extraJumpTimer <= 0)
                 {
                     this.extraJumpsAvailable--;
                     this.setVelocityY(this.jumpVelocity);
@@ -306,8 +315,6 @@ class Slime extends Phaser.Physics.Arcade.Sprite
 
         this.destroyOnSaveObjects = null;
         this.scene.savedSlimeIDs.push(this.slimeID);
-
-        // slimeSaved(levelManager.levelDefinitions[levelManager.currentLevelIndex].levelName, this.slimeID);
     }
 
     addPlayerCollider(player)
