@@ -4,7 +4,7 @@ const expToLevel2 = 9;                      // exp needed to reach level 2 from 
 const expToLevel3 = 15;                     // exp needed to reach level 3 from 2
 const tilemapURLPrefix = 'assets/tilemaps/levels/LevelTilemap_';
 const maxPlayerVelocityY = 392;
-const maxPlayerWalledVelocityY = 280;
+const maxPlayerWalledVelocityY = 252;
 // end of constants
 
 var jumpyGame;  // used to reference the game object in other scripts

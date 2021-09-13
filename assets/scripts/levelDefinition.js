@@ -7,16 +7,16 @@ var tilemapURLArray = [
     { tilemapKey: 'level5', },
     { tilemapKey: 'level6', },
     { tilemapKey: 'level7', },
-    // { tilemapKey: 'level8', },
-    // { tilemapKey: 'level9', },
-    // { tilemapKey: 'level10', },
-    // { tilemapKey: 'level11', },
-    // { tilemapKey: 'level12', },
-    // { tilemapKey: 'level13', },
-    // { tilemapKey: 'level14', },
+    { tilemapKey: 'level8', },
+    { tilemapKey: 'level9', },
+    { tilemapKey: 'level10', },
+    { tilemapKey: 'level11', },
+    { tilemapKey: 'level12', },
+    { tilemapKey: 'level13', },
+    { tilemapKey: 'level14', },
 
     // { tilemapKey: 'levelBranchingPaths', },
-    { tilemapKey: 'testLevel', },
+    // { tilemapKey: 'testLevel', },
 ]
 
 class LevelManager

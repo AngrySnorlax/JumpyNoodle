@@ -121,7 +121,7 @@ class LevelScene extends Phaser.Scene
                 return;
             }
 
-            this.playerJump();
+            this.playerSprite.jump();
         }, this);
 
         var scene = this;
@@ -148,7 +148,7 @@ class LevelScene extends Phaser.Scene
 
             if(scene.spaceKeyPressed == false)
             {
-                scene.playerJump();
+                scene.playerSprite.jump();
             }
             scene.spaceKeyPressed = true;
         });
@@ -175,40 +175,6 @@ class LevelScene extends Phaser.Scene
             }
             scene.pauseGame();
         });
-    }
-
-    playerJump()
-    {
-        if(this.playerSprite.body.blocked.down)
-        {
-            this.playerSprite.setVelocityY(this.playerSprite.jumpVelocity);
-        }
-        else
-        {
-            if(this.playerSprite.isWalled)
-            {
-                if(this.playerSprite.runSpeed > 0)
-                {
-                    this.playerSprite.setVelocityX(-this.playerSprite.wallJumpVelocityX);
-                }
-                else
-                {
-                    this.playerSprite.setVelocityX(this.playerSprite.wallJumpVelocityX);
-                }
-
-                this.playerSprite.setVelocityY(this.playerSprite.wallJumpVelocityY);
-                this.playerSprite.runSpeed = -this.playerSprite.runSpeed;
-                this.playerSprite.extraJumpsAvailable = this.playerSprite.maxNumberOfExtraJumps;
-            }
-            else
-            {
-                if(this.playerSprite.extraJumpsAvailable > 0)
-                {
-                    this.playerSprite.extraJumpsAvailable--;
-                    this.playerSprite.setVelocityY(this.playerSprite.jumpVelocity);
-                }
-            }
-        }
     }
 
     pauseGame()
