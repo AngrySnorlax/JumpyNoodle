@@ -16,7 +16,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.runSpeed = 195;
         this.jumpVelocity = -312;
         this.wallJumpVelocityX = 230;
-        this.wallJumpVelocityY = -318;
+        this.wallJumpVelocityY = -308;
         this.isWalled = false;
         this.maxNumberOfExtraJumps = 0;
         this.extraJumpsAvailable = null;

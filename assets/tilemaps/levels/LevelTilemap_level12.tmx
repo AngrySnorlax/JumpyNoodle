@@ -263,7 +263,7 @@
  <objectgroup id="28" name="GameObjects">
   <object id="84" gid="31" x="1184" y="448" width="32" height="32"/>
   <object id="91" gid="32" x="224" y="512" width="32" height="32"/>
-  <object id="93" gid="17" x="512" y="140" width="32" height="32"/>
+  <object id="93" gid="17" x="512" y="176" width="32" height="32"/>
   <object id="94" gid="17" x="912" y="434" width="32" height="32"/>
   <object id="95" gid="18" x="766" y="448" width="32" height="32"/>
   <object id="97" gid="36" x="64" y="576" width="32" height="32"/>
