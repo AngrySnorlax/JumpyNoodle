@@ -12,6 +12,8 @@ class Preloader extends Phaser.Scene
         this.load.image('emptySprite', 'assets/artwork/emptySprite.png');
         this.load.image('mainMenuBG', 'assets/artwork/mainMenuBG.png');
         this.load.image('buttonTemplate', 'assets/artwork/buttonTemplate.png');
+        this.load.image('rightArrowButton', 'assets/artwork/rightArrowButton.png');
+        this.load.image('leftArrowButton', 'assets/artwork/leftArrowButton.png');
         this.load.image('longButtonTemplate', 'assets/artwork/longButtonTemplate.png');
         this.load.image('pauseButton', 'assets/artwork/pauseButton.png');
         this.load.image('pickUpUI', 'assets/artwork/pickUpUI.png');

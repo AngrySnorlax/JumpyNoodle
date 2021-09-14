@@ -40,12 +40,12 @@ class MaineMenu extends Phaser.Scene {
 		var buttonPositionX = centerOfScreenX - 100;
 		var buttonPositionY = 160;
 
-		leftArrowButtonImage = this.add.sprite(centerOfScreenX - 140, 200, 'buttonTemplate');
+		leftArrowButtonImage = this.add.sprite(centerOfScreenX - 140, 200, 'leftArrowButton');
 		leftArrowButtonImage.setInteractive({ useHandCursor: false });
 		leftArrowButtonImage.visible = false;
 		leftArrowButtonImage.on('pointerdown', () => leftArrowButton());
 
-		rightArrowButtonImage = this.add.sprite(centerOfScreenX + 140, 200, 'buttonTemplate');
+		rightArrowButtonImage = this.add.sprite(centerOfScreenX + 140, 200, 'rightArrowButton');
 		rightArrowButtonImage.setInteractive({ useHandCursor: false });
 		rightArrowButtonImage.visible = false;
 		rightArrowButtonImage.on('pointerdown', () => rightArrowButton());
