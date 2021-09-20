@@ -22,7 +22,7 @@ class Player extends Phaser.Physics.Arcade.Sprite
         this.extraJumpsAvailable = null;
         this.isDead = false;
         this.extraJumpTimer = 0;
-        this.extraJumpTimerDuration = 150;
+        this.extraJumpTimerDuration = 250;
     }
 
     update(scene)
