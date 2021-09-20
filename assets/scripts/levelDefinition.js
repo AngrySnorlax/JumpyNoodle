@@ -17,7 +17,9 @@ var tilemapURLArray = [
     { tilemapKey: 'level15', },
     { tilemapKey: 'level16', },
     { tilemapKey: 'level17', },
-    // { tilemapKey: 'level18', },
+    { tilemapKey: 'level18', },
+    { tilemapKey: 'level19', },
+    { tilemapKey: 'level20', },
 
     // { tilemapKey: 'levelBranchingPaths', },
     // { tilemapKey: 'testLevel', },
